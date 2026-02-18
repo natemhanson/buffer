@@ -131,10 +131,9 @@ function ChargeCard({ charge, index, total, onChange, onRemove }) {
             style={{ border: "none", outline: "none", fontSize: 16, fontWeight: 700, color: C.heading, fontFamily: "'Poppins', sans-serif", background: "transparent", width: 220 }}
           />
         </div>
-        {total > 1 && (
-          <button onClick={() => onRemove(index)}
-            style={{ background: "none", border: "none", cursor: "pointer", padding: 6, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 6, transition: "background 0.15s" }}
-            onMouseEnter={(e) => e.currentTarget.style.background = C.errorBg}
+        <button onClick={() => onRemove(index)}
+            style={{ background: "none", border: "none", cursor: total > 1 ? "pointer" : "default", padding: 6, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 6, transition: "background 0.15s", visibility: total > 1 ? "visible" : "hidden" }}
+            onMouseEnter={(e) => { if (total > 1) e.currentTarget.style.background = C.errorBg; }}
             onMouseLeave={(e) => e.currentTarget.style.background = "none"}
             title="Remove charge"
           >
@@ -142,7 +141,6 @@ function ChargeCard({ charge, index, total, onChange, onRemove }) {
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
-        )}
       </div>
 
       <div style={{ marginBottom: 16 }}>
