@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/prorate.html", "destination": "https://prorate.buffertools.com", "permanent": false },
+    { "source": "/prorate", "destination": "https://prorate.buffertools.com", "permanent": false }
+  ]
+}
